@@ -1,39 +1,30 @@
 # CFX-ANASYS-Script
 
-
+## Example Command
 
 ```
-
 "C:\Program Files\ANSYS Inc\v252\CFX\bin\cfx5solve" -def "D:\Deyi Mimics\Segmentation\CT8\CFX\commandlinetest\30007_winkessel_4_outlets.def" -name "D:\Deyi Mimics\Segmentation\CT8\CFX\commandlinetest\Result" -double -parallel -par-local -partition 4
-
 ```
 
+## Command Arguments
 
+| Argument | Description |
+|----------|-------------|
+| "C:\Program Files\ANSYS Inc\v252\CFX\bin\cfx5solve" | Path to the CFX solver executable |
+| -def | Path to the definition file |
+| -name | Output directory and result folder name |
+| -double | Enable double precision |
+| -par-local | Enable distributed computing on local machine |
+| -partition 4 | Number of cores to use |
 
+## Important Notes
 
+- Variables must be saved in CFX-Pre for observation in the terminal. If no variables are saved, no output appears in the terminal, but the simulation still runs and generates result files normally.
 
-"C:\Program Files\ANSYS Inc\v252\CFX\bin\cfx5solve" is the path of the cfxsolver program
+## Warning
 
--def is for the definition file
+Do not use parallel computing with Windkessel models. These models use external link files, and the MPL naming system creates paths incompatible with Windows. Sequential execution is required for Windkessel simulations.
 
--name:  "D:\Deyi Mimics\Segmentation\CT8\CFX\commandlinetest is where you want to create the result folder, and the "Result" is the name of the result folder.
+## Running Multiple Simulations
 
--double is the double precision
-
--par-local means you want to use distributed computing on your own machine, the 4 is the number of cores.
-
-
-
-
-
-Notice that, if you do not save some variables for observation in the CFX-pre, then you see nothing in the terminal. However, the program can still run and the result file is generated in normal.
-
-
-# Warning:
-1. When run the windkessel model, please do not use the parallel computing because windkessel models use the outer link files. The naming system for MPL will create a path which is incompatiable with Windows system. Therefore, you can not parallel run the code. I will try to fix it later.
-
-
-# Consecutive Running
-
-I provide two 'RunAllSims.bat' as a script file for windows bash. Just modify it for running the code. You may use any one of them.
-
+Two `RunAllSims.bat` batch script files are provided for running consecutive simulations on Windows. Modify them according to your needs.
