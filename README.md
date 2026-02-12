@@ -31,3 +31,9 @@ Notice that, if you do not save some variables for observation in the CFX-pre, t
 
 # Warning:
 1. When run the windkessel model, please do not use the parallel computing because windkessel models use the outer link files. The naming system for MPL will create a path which is incompatiable with Windows system. Therefore, you can not parallel run the code. I will try to fix it later.
+
+
+# Consecutive Running
+
+I provide two 'RunAllSims.bat' as a script file for windows bash. Just modify it for running the code. You may use any one of them.
+
