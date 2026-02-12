@@ -29,3 +29,5 @@
 Notice that, if you do not save some variables for observation in the CFX-pre, then you see nothing in the terminal. However, the program can still run and the result file is generated in normal.
 
 
+Warning:
+1. When run the windkessel model, please do not use the parallel computing because windkessel models use the outer link files. The naming system for MPL will create a path which is incompatiable with Windows system. Therefore, you can not parallel run the code. I will try to fix it later.
